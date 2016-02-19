@@ -16,13 +16,13 @@
         </div>
         <div class="row">
           <div class="col-md-4 ">
-            <a href="admin_managment_user.php"><button class="btn btn-primary ">User Management</button></a>
+            <a href="user/admin_managment_user.php"><button class="btn btn-primary ">User Management</button></a>
           </div>
           <div class="submit col-md-4 ">
-            <a href="admin_managment_compteur.php"><button class="btn btn-primary ">Compteur Management</button></a>
+            <a href="compteur/admin_managment_compteur.php"><button class="btn btn-primary ">Compteur Management</button></a>
           </div>
           <div class="submit col-md-4 ">
-            <a href="deconnect.php"><button type="button" class="btn btn-primary ">Deconnexion</button></a>
+            <a href="/deconnect.php"><button type="button" class="btn btn-primary ">Deconnexion</button></a>
           </div>
         </div>
       </div>

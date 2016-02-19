@@ -4,7 +4,7 @@ session_start();
 //Retour à la page admin s'il la personne n'est pas connectée
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 if(!isset($_SESSION['isConnected'])){
-  header('Location: login.html');
+  header('Location: /login.php');
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //Connection à la base de données
@@ -32,7 +32,7 @@ $query=$bdd->query('SELECT * FROM users WHERE id_user ='.$id);
 $data=$query->fetch();
 ?>
 <html lang="en-US">
-<?php include('../configuration/head_call.php'); ?>
+<?php include('/../../configuration/head_call.php'); ?>
   <body>
     <div class="container">
       <form action="edit_post.php" method="post" class="form-horizontal" role="form">

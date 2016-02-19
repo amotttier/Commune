@@ -40,78 +40,49 @@ else{
 //Test si le nom est vide
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 if(isset($_POST['email'])){
-  if(empty($_POST['email'])){
+
     $_SESSION['form_email'] = true;
-    $redirect = true;
-  }
-  else{
-    $_SESSION['form_email'] = false;
-  }
 }
 else{
-  $_SESSION['form_email'] = true;
-  $redirect = true;
+  $redirect = false;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //Test si le nom est vide
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-if(isset($_POST['adresse'])){
-  if(empty($_POST['adresse'])){
-    $_SESSION['form_adresse'] = true;
+if(isset($_POST['adress'])){
+  if(empty($_POST['adress'])){
+    $_SESSION['form_adress'] = true;
     $redirect = true;
   }
   else{
-    $_SESSION['form_adresse'] = false;
+    $_SESSION['form_adress'] = false;
   }
 }
 else{
-  $_SESSION['form_adresse'] = true;
+  $_SESSION['form_adress'] = true;
   $redirect = true;
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-//Test si le password est vide
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-if(isset($_POST['password'])){
-  if(empty($_POST['password'])){
-    $_SESSION['form_password'] = true;
-    $redirect = true;
-  }
-  else{
-    $_SESSION['form_password'] = false;
-  }
-}
-else{
-  $_SESSION['form_password'] = true;
-  $redirect = true;
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-//Si un des champs est faux, je retourne sur la page de contact et inscris les champs faux
-///////////////////////////////////////////////////////////////////////////////////////////////////////
 if($redirect){
-  header('Location: admin_user.php');
+  header('Location: admin_edit_user.php?id='.$id);
 }
 else{
-
-  $admin = '';
-  if(isset($_POST['admin'])){
-    $admin = 'admin';
-  }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //insertion en base
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-  $req = $bdd->prepare(
-    'INSERT INTO users (username,password,type,email,adress)'.
-    'VALUES (:username,:password, :type, :email, :adresse)'
-    );
+$admin = '';
+if(isset($_POST['admin'])){
+  $admin = 'admin';
+}
+$id = $_SESSION['edit_id'];
+$today = date("Y-m-d");
+$req = $bdd->prepare('UPDATE users SET username = :username, type = :type, email = :email, adress = :adress WHERE id_user = :id');
 
-  $req->execute(array(
-    'username' => htmlspecialchars($_POST['username']),
-  	'password' => sha1(htmlspecialchars($_POST['password'])),
-  	'type' => htmlspecialchars($admin),
-    'email' => htmlspecialchars($_POST['email']),
-    'adresse' => htmlspecialchars($_POST['adresse']),
-  	));
-
+$req->execute(array(
+  'username' => htmlspecialchars($_POST['username']),
+	'type' => htmlspecialchars($admin),
+  'email' => htmlspecialchars($_POST['email']),
+  'adress' => htmlspecialchars($_POST['adress']),
+  'id' => $id));
 }
 header('Location: admin_managment_user.php');
 ?>

@@ -1,18 +1,18 @@
+<?php
+session_start();
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//Retour à la page admin s'il la personne n'est pas connectée
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+if(!isset($_SESSION['isConnected'])){
+  header('Location: /login.php');
+}
 
+?>
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta name="X-UA-Compatible" value="IE=Edge,chrome=1" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimal-ui" />
-    <link href="resources/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="resources/css/admin.css">
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </head>
+  <?php include('/../../configuration/head_call.php'); ?>
   <body>
-    <div class="body_container">
+    <div class="container">
       <form action="admin_user_post.php" method="post" class="form-horizontal" role="form">
         <div class="text-contact form-group" id="username">
           <label class="col-sm-2 control-label" for="input_username">Nom de l'utilisateur *</label>
