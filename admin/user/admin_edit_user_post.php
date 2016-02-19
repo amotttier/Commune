@@ -75,12 +75,15 @@ if(isset($_POST['admin'])){
 }
 $id = $_SESSION['edit_id'];
 $today = date("Y-m-d");
-$req = $bdd->prepare('UPDATE users SET username = :username, type = :type, email = :email, adress = :adress WHERE id_user = :id');
+$req = $bdd->prepare('UPDATE users SET username = :username, name = :name, surname = :surname, type = :type, email = :email, phone = :phone, adress = :adress WHERE id_user = :id');
 
 $req->execute(array(
   'username' => htmlspecialchars($_POST['username']),
+  'name' => htmlspecialchars($_POST['name']),
+  'surname' => htmlspecialchars($_POST['surname']),
 	'type' => htmlspecialchars($admin),
   'email' => htmlspecialchars($_POST['email']),
+  'phone' => htmlspecialchars($_POST['phone']),
   'adress' => htmlspecialchars($_POST['adress']),
   'id' => $id));
 }

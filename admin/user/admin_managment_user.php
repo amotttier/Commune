@@ -44,10 +44,11 @@ $query=$bdd->query('SELECT * FROM users LIMIT '.(($cPage-1)*$perPage).','.$perPa
   <?php include('/../../configuration/head_call.php'); ?>
   <body>
     <div class="container">
-      <a href="admin_user.php"><button type="button" class="btn btn-primary pull-left">Create User</button></a>
+      <a href="admin_create_user.php"><button type="button" class="btn btn-primary pull-left">Create User</button></a>
       <table class="table table-hover">
         <thead>
-          <td>Username</td>
+          <td>Nom</td>
+          <td>Prénom</td>
           <td>Type</td>
           <td>Edit</td>
           <td>Envoyé un email</td>
@@ -58,10 +59,10 @@ $query=$bdd->query('SELECT * FROM users LIMIT '.(($cPage-1)*$perPage).','.$perPa
             while($data = $query->fetch())
             {
               echo "<tr>";
-              echo "<td>" . $data['username'] . "</td><td>" . $data['type'] . "</td>";
-              echo "<td><a href=\"edit.php?id=" . $data['id_user'] . "\">Edit</a></td>";
+              echo "<td>" . $data['surname'] . "</td><td>" . $data['name'] . "</td><td>" . $data['type'] . "</td>";
+              echo "<td><a href=\"admin_edit_user.php?id=" . $data['id_user'] . "\">Edit</a></td>";
               echo "<td><a href=\"mailto:" . $data['email'] . "?subject=Compteur d'eau&body=Bonjour,\">" . $data['email'] . "</a></td>";
-              echo "<td><a href=\"delete.php?id=" . $data['id_user'] . "\">Delete</a></td>";
+              echo "<td><a href=\"admin_delete_user.php?id=" . $data['id_user'] . "\">Delete</a></td>";
               echo "</tr>";
             }
           ?>
@@ -79,7 +80,7 @@ $query=$bdd->query('SELECT * FROM users LIMIT '.(($cPage-1)*$perPage).','.$perPa
            }
         ?>
       </ul>
-      <a href="admin.php"><button class="btn btn-primary pull-left">Return</button></a>
+      <a href="../admin.php"><button class="btn btn-primary pull-left">Return</button></a>
       <a href="/deconnect.php"><button type="button" class="btn btn-primary pull-right">Deconnexion</button></a>
     </div>
   </body>

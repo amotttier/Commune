@@ -35,47 +35,47 @@ $data=$query->fetch();
 <?php include('/../../configuration/head_call.php'); ?>
   <body>
     <div class="container">
-      <form action="edit_post.php" method="post" class="form-horizontal" role="form">
+      <form action="admin_edit_user_post.php" method="post" class="form-horizontal" role="form">
         <div class="text-contact form-group" id="username">
           <label class="col-sm-2 control-label" for="input_username">Username *</label>
           <div class="col-sm-10">
-            <input type="text" name="username" class="form-control" id="input_username" value="<?php echo $data['username']; ?>">
+            <input type="text" name="username" class="form-control" value="<?php echo $data['username']; ?>">
           </div>
         </div>
         <div class="text-contact form-group" id="name">
           <label class="col-sm-2 control-label" for="input_username">Name *</label>
           <div class="col-sm-10">
-            <input type="text" name="username" class="form-control" id="input_username" value="<?php echo $data['name']; ?>">
+            <input type="text" name="name" class="form-control" value="<?php echo $data['name']; ?>">
           </div>
         </div>
         <div class="text-contact form-group" id="surname">
           <label class="col-sm-2 control-label" for="input_username">Surname *</label>
           <div class="col-sm-10">
-            <input type="text" name="username" class="form-control" id="input_username" value="<?php echo $data['surname']; ?>">
+            <input type="text" name="surname" class="form-control"value="<?php echo $data['surname']; ?>">
           </div>
         </div>
         <div class="text-contact form-group" id="email">
           <label class="col-sm-2 control-label" for="input_email">Email *</label>
           <div class="col-sm-10">
-            <input type="text" name="email" class="form-control" id="input_email" value="<?php echo $data['email']; ?>">
+            <input type="text" name="email" class="form-control" value="<?php echo $data['email']; ?>">
           </div>
         </div>
         <div class="text-contact form-group" id="phone">
           <label class="col-sm-2 control-label" for="input_email">Phone Number *</label>
           <div class="col-sm-10">
-            <input type="text" name="email" class="form-control" id="input_email" value="<?php echo $data['phone']; ?>">
+            <input type="text" name="phone" class="form-control" value="<?php echo $data['phone']; ?>">
           </div>
         </div>
         <div class="text-contact form-group" id="adress">
           <label class="col-sm-2 control-label" for="input_adress">Adress *</label>
           <div class="col-sm-10">
-            <input type="text" name="adress" class="form-control" id="input_adress" value="<?php echo $data['adress']; ?>">
+            <input type="text" name="adress" class="form-control" value="<?php echo $data['adress']; ?>">
           </div>
         </div>
         <div class="text-contact form-group" id="admin">
           <label class="col-sm-2 control-label" for="input_admin">Adminstrator</label>
           <div class="col-sm-10">
-            <input id="input_admin" type="checkbox" class="form-control" name="admin" <?php if($data['type'] == 'admin') {echo 'checked';}  ?>>
+            <input type="checkbox" class="form-control" name="admin" <?php if($data['type'] == 'admin') {echo 'checked';}  ?>>
           </div>
         </div>
         <div class="clear"></div>
@@ -84,7 +84,7 @@ $data=$query->fetch();
           <span class="help-block">* are mendatory fields</span>
         </div>
         <div class="col-sm-2"></div>
-        <div id="submit  col-sm-10">
+        <div id="submit">
           <button type="submit" class="btn btn-primary pull-right">Submit</button>
         </div>
       </form>
