@@ -7,12 +7,7 @@
  ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="resources/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery.js"></script>
-  </head>
+  <?php include('../configuration/head_call.php'); ?>
   <body>
     <div class="container">
       <div class="col-md-12">

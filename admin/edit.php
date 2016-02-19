@@ -32,26 +32,26 @@ $query=$bdd->query('SELECT * FROM users WHERE id_user ='.$id);
 $data=$query->fetch();
 ?>
 <html lang="en-US">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Responsive : Alexandre Mottier</title>
-    <link href="resources/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="resources/css/admin.css">
-    <script src="http://code.jquery.com/jquery.js"></script>
-
-      <!-- Enable media queries for old IE -->
-      <!--[if lt IE 9]>
-      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-      <![endif]-->
-  </head>
+<?php include('../configuration/head_call.php'); ?>
   <body>
-    <div class="body_container">
+    <div class="container">
       <form action="edit_post.php" method="post" class="form-horizontal" role="form">
         <div class="text-contact form-group" id="username">
-          <label class="col-sm-2 control-label" for="input_username">Name *</label>
+          <label class="col-sm-2 control-label" for="input_username">Username *</label>
           <div class="col-sm-10">
             <input type="text" name="username" class="form-control" id="input_username" value="<?php echo $data['username']; ?>">
+          </div>
+        </div>
+        <div class="text-contact form-group" id="name">
+          <label class="col-sm-2 control-label" for="input_username">Name *</label>
+          <div class="col-sm-10">
+            <input type="text" name="username" class="form-control" id="input_username" value="<?php echo $data['name']; ?>">
+          </div>
+        </div>
+        <div class="text-contact form-group" id="surname">
+          <label class="col-sm-2 control-label" for="input_username">Surname *</label>
+          <div class="col-sm-10">
+            <input type="text" name="username" class="form-control" id="input_username" value="<?php echo $data['surname']; ?>">
           </div>
         </div>
         <div class="text-contact form-group" id="email">
@@ -60,8 +60,14 @@ $data=$query->fetch();
             <input type="text" name="email" class="form-control" id="input_email" value="<?php echo $data['email']; ?>">
           </div>
         </div>
+        <div class="text-contact form-group" id="phone">
+          <label class="col-sm-2 control-label" for="input_email">Phone Number *</label>
+          <div class="col-sm-10">
+            <input type="text" name="email" class="form-control" id="input_email" value="<?php echo $data['phone']; ?>">
+          </div>
+        </div>
         <div class="text-contact form-group" id="adress">
-          <label class="col-sm-2 control-label" for="input_adress">adress *</label>
+          <label class="col-sm-2 control-label" for="input_adress">Adress *</label>
           <div class="col-sm-10">
             <input type="text" name="adress" class="form-control" id="input_adress" value="<?php echo $data['adress']; ?>">
           </div>
@@ -84,9 +90,5 @@ $data=$query->fetch();
       </form>
       <a href="admin_managment_user.php"><button class="btn btn-primary pull-left">Return</button></a>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

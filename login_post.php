@@ -71,11 +71,11 @@ else{
     if($data['type'] == 'admin'){
       $_SESSION['isConnected'] = true;
       $_SESSION['username'] = $data['username'];
-      header('Location: admin.php');
+      header('Location: admin/admin.php');
     }
     else{
       $_SESSION['isConnected'] = true;
-      header('Location: user.php');
+      header('Location: user/user.php');
     }
   }
   else{ // Acces non ok
