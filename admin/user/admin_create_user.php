@@ -10,45 +10,73 @@ if(!isset($_SESSION['isConnected'])){
 ?>
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <?php include('/../../configuration/head_call.php'); ?>
-  <body>
-    <div class="container">
-      <form action="admin_user_post.php" method="post" class="form-horizontal" role="form">
-        <div class="text-contact form-group" id="username">
-          <label class="col-sm-2 control-label" for="input_username">Nom de l'utilisateur *</label>
-          <div class="col-sm-10">
-            <input type="text" name="username" class="form-control" id="input_username">
-          </div>
+  <?php include('../../configuration/head_call.php'); ?>
+  <style>
+    .demo-list-control {
+      width: 300px;
+      margin: auto;
+    }
+
+    .demo-list-radio {
+      display: inline;
+    }
+    .mdl-list__item .mdl-list__item-primary-content {
+      color: rgba(0, 0, 0, 0.26);
+    }
+  </style>
+    <main class="mdl-layout__content mdl-color--grey-100">
+      <form action="admin_create_user_post.php" method="post" role="form">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="username">
+          <input type="text" name="username" class="mdl-textfield__input" id="input_username">
+          <label class="mdl-textfield__label" for="input_username">Nom du compte</label>
         </div>
-        <div class="text-contact form-group" id="password">
-          <label class="col-sm-2 control-label" for="input_name">Mot de passe *</label>
-          <div class="col-sm-10">
-            <input type="password" name="password" class="form-control" id="input_password">
-          </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="name">
+          <input type="text" name="name" class="mdl-textfield__input" id="input_name">
+          <label class="mdl-textfield__label" for="input_name">Prénom</label>
         </div>
-        <div class="text-contact form-group" id="email">
-          <label class="col-sm-2 control-label" for="input_email">Email *</label>
-          <div class="col-sm-10">
-            <input type="text" name="email" class="form-control" id="input_email">
-          </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="surname">
+          <input type="text" name="surname" class="mdl-textfield__input" id="input_surname">
+          <label class="mdl-textfield__label" for="input_surname">Nom de famille</label>
         </div>
-        <div class="text-contact form-group" id="adresse">
-          <label class="col-sm-2 control-label" for="input_adresse">Adresse *</label>
-          <div class="col-sm-10">
-            <input type="text" name="adresse" class="form-control" id="input_adresse">
-          </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="password">
+          <input type="password" name="password" class="mdl-textfield__input" id="input_password">
+          <label class="mdl-textfield__label" for="input_name">Mot de passe</label>
         </div>
-        <div class="text-contact form-group" id="type">
-          <label class="col-sm-2 control-label" for="input_name">Administrateur</label>
-          <div class="col-sm-1 ">
-            <input type="checkbox" name="admin" class="form-control" id="input_password">
-          </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="email">
+          <input type="text" name="email" class="mdl-textfield__input" id="input_email">
+          <label class="mdl-textfield__label" for="input_email">Email</label>
         </div>
-        <div id="submit  col-sm-10">
-          <button type="submit" class="btn btn-primary pull-right">Submit</button>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="adresse">
+          <input type="text" name="adresse" class="mdl-textfield__input" id="input_adresse">
+          <label class="mdl-textfield__label" for="input_adresse">Adresse</label>
         </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="phone">
+          <input type="text" name="phone" class="mdl-textfield__input" id="input_phone">
+          <label class="mdl-textfield__label" for="input_phone">Téléphone</label>
+        </div>
+        <br />
+        <ul class="demo-list-control mdl-list">
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              Administrateur
+            </span>
+            <span class="mdl-list__item-secondary-action">
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="admin">
+                <input type="checkbox" name="admin" id="admin" class="mdl-checkbox__input"  />
+              </label>
+            </span>
+          </li>
+        </ul>
+        <br />
+        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Envoyer</button>
       </form>
-      <a href="admin_managment_user.php"><button class="btn btn-primary pull-left">Return</button></a>
-    </div>
+    </main>
+    <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
   </body>
 </html>

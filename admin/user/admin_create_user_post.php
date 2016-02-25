@@ -100,16 +100,19 @@ else{
 //insertion en base
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
   $req = $bdd->prepare(
-    'INSERT INTO users (username,password,type,email,adress)'.
-    'VALUES (:username,:password, :type, :email, :adresse)'
+    'INSERT INTO users (username,name,surname,password,type,email,adresse,phone)'.
+    'VALUES (:username, :name, :surname, :password, :type, :email, :adresse, :phone)'
     );
 
   $req->execute(array(
     'username' => htmlspecialchars($_POST['username']),
+    'name' => htmlspecialchars($_POST['name']),
+    'surname' => htmlspecialchars($_POST['surname']),
   	'password' => sha1(htmlspecialchars($_POST['password'])),
   	'type' => htmlspecialchars($admin),
     'email' => htmlspecialchars($_POST['email']),
     'adresse' => htmlspecialchars($_POST['adresse']),
+    'phone' => htmlspecialchars($_POST['phone']),
   	));
 
 }

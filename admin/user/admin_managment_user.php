@@ -41,47 +41,40 @@ $query=$bdd->query('SELECT * FROM users LIMIT '.(($cPage-1)*$perPage).','.$perPa
 
 ?>
 <html lang="en-US">
-  <?php include('/../../configuration/head_call.php'); ?>
-  <body>
-    <div class="container">
-      <a href="admin_create_user.php"><button type="button" class="btn btn-primary pull-left">Create User</button></a>
-      <table class="table table-hover">
-        <thead>
-          <td>Nom</td>
-          <td>Prénom</td>
-          <td>Type</td>
-          <td>Edit</td>
-          <td>Envoyé un email</td>
-          <td>Delete</td>
-        </thead>
-        <tbody>
-          <?php
-            while($data = $query->fetch())
-            {
-              echo "<tr>";
-              echo "<td>" . $data['surname'] . "</td><td>" . $data['name'] . "</td><td>" . $data['type'] . "</td>";
-              echo "<td><a href=\"admin_edit_user.php?id=" . $data['id_user'] . "\">Edit</a></td>";
-              echo "<td><a href=\"mailto:" . $data['email'] . "?subject=Compteur d'eau&body=Bonjour,\">" . $data['email'] . "</a></td>";
-              echo "<td><a href=\"admin_delete_user.php?id=" . $data['id_user'] . "\">Delete</a></td>";
-              echo "</tr>";
-            }
-          ?>
-        </tbody>
-      </table>
-      <ul class="pagination">
+  <?php include('../../configuration/head_call.php'); ?>
+  <main class="mdl-layout__content mdl-color--grey-100">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Nom d'utilisateur</th>
+          <th>Type</th>
+          <th>Modifier</th>
+          <th>Envoyer un email</th>
+          <th>Supprimer</th>
+        </tr>
+      </thead>
+      <tbody style="text-align:center">
         <?php
-           for ($i=1;$i<=$nbPage;$i++){
-             if($i==$cPage){
-               echo '<li><a href="admin_managment_user.php?p='.$i.'"> '.$i.'</a></li>';
-             }
-             else{
-                echo '<li><a href="admin_managment_user.php?p='.$i.'"> '.$i.'</a></li>';
-             }
-           }
+          while($data = $query->fetch())
+          {
+            echo "<tr>";
+            echo "<td>" . $data['surname'] . "</td><td>" . $data['name'] . "</td><td>" . $data['username'] . "</td><td>" . $data['type'] . "</td>";
+            echo "<td><a href=\"admin_edit_user.php?id=" . $data['id_user'] . "\"><i class=\"mdl-color-text--blue-grey-400 material-icons\">create</i></a></td>";
+            echo "<td><a href=\"mailto:" . $data['email'] . "?subject=Compteur d'eau&body=Bonjour,\"><i class=\"mdl-color-text--blue-grey-400 material-icons\">email</i></a></td>";
+            echo "<td><a href=\"admin_delete_user.php?id=" . $data['id_user'] . "\"><i class=\"mdl-color-text--blue-grey-400 material-icons\">delete</i></a></td>";
+            echo "</tr>";
+          }
         ?>
-      </ul>
-      <a href="../admin.php"><button class="btn btn-primary pull-left">Return</button></a>
-      <a href="/deconnect.php"><button type="button" class="btn btn-primary pull-right">Deconnexion</button></a>
+      </tbody>
+    </table>
+    <a href="admin_create_user.php">
+      <button id="bt-create-user" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">add</i></button>
+    </a>
+    <div class="mdl-tooltip" for="bt-create-user">
+      Créer un utilisateur
     </div>
-  </body>
+  </main>
+  <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
 </html>

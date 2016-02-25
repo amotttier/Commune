@@ -32,63 +32,67 @@ $query=$bdd->query('SELECT * FROM users WHERE id_user ='.$id);
 $data=$query->fetch();
 ?>
 <html lang="en-US">
-<?php include('/../../configuration/head_call.php'); ?>
-  <body>
-    <div class="container">
-      <form action="admin_edit_user_post.php" method="post" class="form-horizontal" role="form">
-        <div class="text-contact form-group" id="username">
-          <label class="col-sm-2 control-label" for="input_username">Username *</label>
-          <div class="col-sm-10">
-            <input type="text" name="username" class="form-control" value="<?php echo $data['username']; ?>">
-          </div>
+<?php include('../../configuration/head_call.php'); ?>
+<style>
+  .demo-list-control {
+    width: 300px;
+    margin: auto;
+  }
+
+  .demo-list-radio {
+    display: inline;
+  }
+  .mdl-list__item .mdl-list__item-primary-content {
+    color: rgba(0, 0, 0, 0.26);
+  }
+</style>
+    <main class="mdl-layout__content mdl-color--grey-100">
+      <form action="admin_edit_user_post.php" method="post" role="form">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="username">
+          <input type="text" name="username" class="mdl-textfield__input" value="<?php echo $data['username']; ?>">
+          <label class="mdl-textfield__label" for="input_username">Nom du compte</label>
         </div>
-        <div class="text-contact form-group" id="name">
-          <label class="col-sm-2 control-label" for="input_username">Name *</label>
-          <div class="col-sm-10">
-            <input type="text" name="name" class="form-control" value="<?php echo $data['name']; ?>">
-          </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="name">
+          <label class="mdl-textfield__label" for="input_username">Prénom</label>
+          <input type="text" name="name" class="mdl-textfield__input" value="<?php echo $data['name']; ?>">
         </div>
-        <div class="text-contact form-group" id="surname">
-          <label class="col-sm-2 control-label" for="input_username">Surname *</label>
-          <div class="col-sm-10">
-            <input type="text" name="surname" class="form-control"value="<?php echo $data['surname']; ?>">
-          </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="surname">
+          <label class="mdl-textfield__label" for="input_username">Nom de famille</label>
+          <input type="text" name="surname" class="mdl-textfield__input"value="<?php echo $data['surname']; ?>">
         </div>
-        <div class="text-contact form-group" id="email">
-          <label class="col-sm-2 control-label" for="input_email">Email *</label>
-          <div class="col-sm-10">
-            <input type="text" name="email" class="form-control" value="<?php echo $data['email']; ?>">
-          </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="email">
+          <label class="mdl-textfield__label" for="input_email">Email</label>
+          <input type="text" name="email" class="mdl-textfield__input" value="<?php echo $data['email']; ?>">
         </div>
-        <div class="text-contact form-group" id="phone">
-          <label class="col-sm-2 control-label" for="input_email">Phone Number *</label>
-          <div class="col-sm-10">
-            <input type="text" name="phone" class="form-control" value="<?php echo $data['phone']; ?>">
-          </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="adresse">
+          <label class="mdl-textfield__label" for="input_adresse">Adresse</label>
+          <input type="text" name="adresse" class="mdl-textfield__input" value="<?php echo $data['adresse']; ?>">
         </div>
-        <div class="text-contact form-group" id="adress">
-          <label class="col-sm-2 control-label" for="input_adress">Adress *</label>
-          <div class="col-sm-10">
-            <input type="text" name="adress" class="form-control" value="<?php echo $data['adress']; ?>">
-          </div>
+        <br />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="phone">
+          <label class="mdl-textfield__label" for="input_email">Numéro de téléphone</label>
+          <input type="text" name="phone" class="mdl-textfield__input" value="<?php echo $data['phone']; ?>">
         </div>
-        <div class="text-contact form-group" id="admin">
-          <label class="col-sm-2 control-label" for="input_admin">Adminstrator</label>
-          <div class="col-sm-10">
-            <input type="checkbox" class="form-control" name="admin" <?php if($data['type'] == 'admin') {echo 'checked';}  ?>>
-          </div>
-        </div>
-        <div class="clear"></div>
-        <div class="col-sm-2"></div>
-        <div class="text-contact form-group col-sm-10">
-          <span class="help-block">* are mendatory fields</span>
-        </div>
-        <div class="col-sm-2"></div>
-        <div id="submit">
-          <button type="submit" class="btn btn-primary pull-right">Submit</button>
-        </div>
+        <br />
+        <ul class="demo-list-control mdl-list">
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              Administrateur
+            </span>
+            <span class="mdl-list__item-secondary-action">
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="admin">
+                <input type="checkbox" name="admin" id="admin" class="mdl-checkbox__input" <?php if($data['type'] == 'admin') {echo 'checked';}  ?> />
+              </label>
+            </span>
+          </li>
+        </ul>
+        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Modifier</button>
       </form>
-      <a href="admin_managment_user.php"><button class="btn btn-primary pull-left">Return</button></a>
-    </div>
+    </main>
+    <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
   </body>
 </html>

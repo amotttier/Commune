@@ -42,11 +42,9 @@
 ?>
 
 <html lang="en-US">
-  <?php include('../configuration/head_call.php'); ?>
-  <body class="">
-    <div class="container">
-      <a href="admin__create_compteur.php"><button type="button" class="btn btn-primary pull-left">Créer un compteur d'eau</button></a>
-      <table class="table table-hover">
+  <?php include('../../configuration/head_call.php'); ?>
+  <main class="mdl-layout__content mdl-color--grey-100">
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
           <td>Numéro du compteur</td>
           <td>Personne assignée</td>
@@ -62,20 +60,12 @@
           ?>
         </tbody>
       </table>
-      <ul class="pagination">
-        <?php
-           for ($i=1;$i<=$nbPage;$i++){
-             if($i==$cPage){
-               echo '<li><a href="admin.php?p='.$i.'"> '.$i.'</a></li>';
-             }
-             else{
-                echo '<li><a href="admin.php?p='.$i.'"> '.$i.'</a></li>';
-             }
-           }
-        ?>
-      </ul>
-      <a href="admin.php"><button class="btn btn-primary pull-left">Return</button></a>
-      <a href="deconnect.php"><button type="button" class="btn btn-primary pull-right">Deconnexion</button></a>
-    </div>
-  </body>
+      <a href="admin_create_compteur.php">
+        <button id="bt-create-compteur" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">add</i></button>
+      </a>
+      <div class="mdl-tooltip" for="bt-create-compteur">
+        Créer un compteur d'eau
+      </div>
+    </main>
+      <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
 </html>

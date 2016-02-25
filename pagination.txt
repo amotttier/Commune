@@ -1,0 +1,12 @@
+<ul class="pagination">
+  <?php
+     for ($i=1;$i<=$nbPage;$i++){
+       if($i==$cPage){
+         echo '<li><a href="admin.php?p='.$i.'"> '.$i.'</a></li>';
+       }
+       else{
+          echo '<li><a href="admin.php?p='.$i.'"> '.$i.'</a></li>';
+       }
+     }
+  ?>
+</ul>

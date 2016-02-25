@@ -25,5 +25,5 @@ catch (Exception $e)
 $id = $_GET['id'];
 
 $query=$bdd->query("DELETE FROM users WHERE id_user = ".$id);
-header('Location: /../admin.php');
+header('Location: admin_managment_user.php');
 ?>

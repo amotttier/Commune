@@ -62,7 +62,7 @@ if($redirect){
 //Sinon on test s'il a les bons acces
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 else{
-  $query=$bdd->prepare('SELECT id_user,username, password, type
+  $query=$bdd->prepare('SELECT *
   FROM users WHERE username = :username');
   $query->bindValue(':username',$_POST['username'], PDO::PARAM_STR);
   $query->execute();
@@ -70,7 +70,8 @@ else{
   if($data['password'] == sha1($_POST['password'])){ //Acces ok
     if($data['type'] == 'admin'){
       $_SESSION['isConnected'] = true;
-      $_SESSION['username'] = $data['username'];
+      $_SESSION['surname'] = $data['surname'];
+      $_SESSION['name'] = $data['name'];
       header('Location: admin/admin.php');
     }
     else{

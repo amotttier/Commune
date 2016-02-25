@@ -1,3 +1,16 @@
-body{
-  padding-top: 50px;
+.mdl-data-table td{
+  text-align: center;
+}
+
+.mdl-data-table{
+  margin: auto;
+}
+
+.mdl-button--fab{
+  top: 40px;
+  left: 85%;
+}
+
+form{
+  text-align: center;
 }

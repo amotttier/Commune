@@ -20,48 +20,6 @@ catch (Exception $e)
 //variable de redirection si un des champs est faux
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 $redirect = false;
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-//Test si le nom est vide
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-if(isset($_POST['username'])){
-  if(empty($_POST['username'])){
-    $_SESSION['form_username'] = true;
-    $redirect = true;
-  }
-  else{
-    $_SESSION['form_username'] = false;
-  }
-}
-else{
-  $_SESSION['form_username'] = true;
-  $redirect = true;
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-//Test si le nom est vide
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-if(isset($_POST['email'])){
-
-    $_SESSION['form_email'] = true;
-}
-else{
-  $redirect = false;
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-//Test si le nom est vide
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-if(isset($_POST['adress'])){
-  if(empty($_POST['adress'])){
-    $_SESSION['form_adress'] = true;
-    $redirect = true;
-  }
-  else{
-    $_SESSION['form_adress'] = false;
-  }
-}
-else{
-  $_SESSION['form_adress'] = true;
-  $redirect = true;
-}
 if($redirect){
   header('Location: admin_edit_user.php?id='.$id);
 }
@@ -75,7 +33,7 @@ if(isset($_POST['admin'])){
 }
 $id = $_SESSION['edit_id'];
 $today = date("Y-m-d");
-$req = $bdd->prepare('UPDATE users SET username = :username, name = :name, surname = :surname, type = :type, email = :email, phone = :phone, adress = :adress WHERE id_user = :id');
+$req = $bdd->prepare('UPDATE users SET username = :username, name = :name, surname = :surname, type = :type, email = :email, phone = :phone, adresse = :adresse WHERE id_user = :id');
 
 $req->execute(array(
   'username' => htmlspecialchars($_POST['username']),
@@ -84,7 +42,7 @@ $req->execute(array(
 	'type' => htmlspecialchars($admin),
   'email' => htmlspecialchars($_POST['email']),
   'phone' => htmlspecialchars($_POST['phone']),
-  'adress' => htmlspecialchars($_POST['adress']),
+  'adresse' => htmlspecialchars($_POST['adresse']),
   'id' => $id));
 }
 header('Location: admin_managment_user.php');

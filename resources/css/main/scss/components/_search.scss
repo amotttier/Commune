@@ -1,0 +1,37 @@
+.popover-search {
+    padding:0;
+
+    max-width:100%;
+
+    z-index: 1040;
+    position: fixed;
+
+
+    .popover-content {
+        padding:0;
+
+        .popover-title {
+            padding:4px 14px;
+        }
+
+        ul + .popover-title {
+            border-top: 1px solid darken($popover-title-bg, 5%);
+            border-radius:0;
+        }
+    }
+
+    .dropdown-menu {
+        display:block;
+        position:static;
+        width:100%;
+        float:none;
+
+        box-shadow:none;
+        border-width:0;
+        padding:0;
+    }
+
+    a {
+        white-space:nowrap;
+    }
+}
