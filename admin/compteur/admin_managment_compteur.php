@@ -46,15 +46,26 @@
   <main class="mdl-layout__content mdl-color--grey-100">
       <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>
-          <td>Numéro du compteur</td>
-          <td>Personne assignée</td>
+          <th>Numéro du compteur</th>
+          <th>Personne assignée</th>
+          <th>Dernière transaction</th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
         </thead>
         <tbody>
           <?php
           while($data = $query->fetch())
           {
+            if($data['last_transaction'] == '0000-00-00')
+            {
+              $data['last_transaction'] = '/';
+            }
+
             echo "<tr>";
-            echo "<td>" . $data['no_compteur'] . "</td><td>" . $data['user_assign'] . "</td>";
+            echo "<td>" . $data['compteur_number'] . "</td><td>" . $data['id_user_assign'] . "</td>";
+            echo "<td>" . $data['last_transaction'] . "</td>";
+            echo "<td><a href=\"admin_edit_compteur.php?id=" . $data['id_compteur'] . "\"><i class=\"mdl-color-text--blue-grey-400 material-icons\">create</i></a></td>";
+            echo "<td><a href=\"admin_delete_compteur.php?id=" . $data['id_compteur'] . "\"><i class=\"mdl-color-text--blue-grey-400 material-icons\">delete</i></a></td>";
             echo "</tr>";
           }
           ?>
