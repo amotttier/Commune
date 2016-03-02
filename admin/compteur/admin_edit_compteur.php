@@ -24,7 +24,7 @@ $query=$bdd->query('SELECT * FROM compteurs WHERE id_compteur ='.$id);
 $data=$query->fetch();
 ?>
 <html lang="en-US">
-<?php include('../../configuration/head_call.php'); ?>
+<?php include('../../configuration/admin_head_call.php'); ?>
 <style>
   .demo-list-control {
     width: 300px;

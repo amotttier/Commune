@@ -76,6 +76,10 @@ else{
     }
     else{
       $_SESSION['isConnected'] = true;
+      $_SESSION['user_surname'] = $data['surname'];
+      $_SESSION['user_name'] = $data['name'];
+      $_SESSION['user_username'] = $data['username'];
+      $_SESSION['user_id'] = $data['id_user'];
       header('Location: user/user.php');
     }
   }

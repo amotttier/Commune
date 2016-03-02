@@ -42,7 +42,7 @@
 ?>
 
 <html lang="en-US">
-  <?php include('../../configuration/head_call.php'); ?>
+  <?php include('../../configuration/admin_head_call.php'); ?>
   <main class="mdl-layout__content mdl-color--grey-100">
       <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
         <thead>

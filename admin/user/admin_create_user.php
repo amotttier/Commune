@@ -10,7 +10,7 @@ if(!isset($_SESSION['isConnected'])){
 ?>
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <?php include('../../configuration/head_call.php'); ?>
+  <?php include('../../configuration/admin_head_call.php'); ?>
   <style>
     .demo-list-control {
       width: 300px;
