@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="/resources/css/styles.css">
     <link rel="stylesheet" href="/resources/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/cs-select.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/cs-skin-border.css" />
     <style>
     #view-source {
       position: fixed;

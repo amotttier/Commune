@@ -6,6 +6,20 @@ session_start();
 if(!isset($_SESSION['isConnected'])){
   header('Location: /login.php');
 }
+try
+{
+  $bdd = new PDO(
+    'mysql:host=localhost;dbname=db_site;charset=utf8',
+    'root',
+    '',
+    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch (Exception $e)
+{
+  die('Erreur : ' . $e->getMessage());
+}
+
+$query=$bdd->query('SELECT * FROM users ORDER BY username');
 
 ?>
 <!DOCTYPE html>
@@ -31,10 +45,22 @@ if(!isset($_SESSION['isConnected'])){
           <label class="mdl-textfield__label" for="input_num">Numéro du compteur</label>
         </div>
         <br />
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="name">
-          <input type="text" name="name" class="mdl-textfield__input" id="input_name">
-          <label class="mdl-textfield__label" for="input_name">Nom du compte du propriétaire</label>
-        </div>
+        <select name="name" class="cs-select cs-skin-border">
+          <option disabled selected>Nom du propriétaire</option>
+          <?php while($data = $query->fetch()){
+            echo '<option value="' . $data['username'] . '">' . $data['surname'] . ' ' . $data['name'] . '</option>';
+          }
+          ?>
+        </select>
+        <script src="/resources/js/classie.js"></script>
+        <script src="/resources/js/selectFx.js"></script>
+        <script>
+          (function() {
+            [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+              new SelectFx(el);
+            } );
+          })();
+        </script>
         <br />
         <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Envoyer</button>
       </form>
