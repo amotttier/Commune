@@ -22,6 +22,12 @@ else{
 }
 $query=$bdd->query('SELECT * FROM compteurs WHERE id_compteur ='.$id);
 $data=$query->fetch();
+$query1=$bdd->prepare('SELECT * FROM users WHERE username = :username');
+$query1->bindValue(':username',$data['id_user_assign'], PDO::PARAM_STR);
+$query1->execute();
+$data1=$query1->fetch();
+$query2=$bdd->query('SELECT * FROM users');
+
 ?>
 <html lang="en-US">
 <?php include('../../configuration/admin_head_call.php'); ?>
@@ -45,10 +51,22 @@ $data=$query->fetch();
           <label class="mdl-textfield__label" for="input_num">Numéro du compteur</label>
         </div>
         <br />
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input type="text" name="id_user_assign" class="mdl-textfield__input" id="input_name" value="<?php echo $data['id_user_assign']; ?>">
-          <label class="mdl-textfield__label" for="input_name">Nom du compte du propriétaire</label>
-        </div>
+        <select name="name" class="cs-select cs-skin-border">
+          <option disabled selected><?php echo $data1['surname'] . ' ' . $data1['name']; ?></option>
+          <?php while($data2 = $query2->fetch()){
+            echo '<option value="' . $data2['username'] . '">' . $data2['surname'] . ' ' . $data2['name'] . '</option>';
+          }
+          ?>
+        </select>
+        <script src="/resources/js/classie.js"></script>
+        <script src="/resources/js/selectFx.js"></script>
+        <script>
+          (function() {
+            [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+              new SelectFx(el);
+            } );
+          })();
+        </script>
         <br />
         <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Modifier</button>
       </form>

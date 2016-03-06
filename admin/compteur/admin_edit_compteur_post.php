@@ -34,7 +34,7 @@ $req = $bdd->prepare('UPDATE compteurs SET compteur_number = :compteur_number, i
 
 $req->execute(array(
   'compteur_number' => htmlspecialchars($_POST['compteur_number']),
-  'id_user_assign' => htmlspecialchars($_POST['id_user_assign']),
+  'id_user_assign' => htmlspecialchars($_POST['name']),
   'id' => $id));
 }
 header('Location: admin_managment_compteur.php');
