@@ -23,6 +23,10 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/resources/css/cs-select.css" />
     <link rel="stylesheet" type="text/css" href="/resources/css/cs-skin-border.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/ns-default.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/ns-style-other.css" />
+    <script src="/resources/js/modernizr.custom.js"></script>
+    <script src="/resources/js/snap.svg-min.js"></script>
     <style>
     #view-source {
       position: fixed;

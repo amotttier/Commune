@@ -20,6 +20,14 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="/resources/css/styles.css">
     <link rel="stylesheet" href="/resources/css/main.css">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/cs-select.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/cs-skin-border.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/ns-default.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/ns-style-other.css" />
+    <script src="/resources/js/modernizr.custom.js"></script>
+    <script src="/resources/js/snap.svg-min.js"></script>
     <style>
     #view-source {
       position: fixed;

@@ -1,0 +1,53 @@
+
+
+
+//here you can override bootstrap variables
+
+// Brand colors
+// -------------------------
+
+$brand-primary:         #fd7029;
+
+// Typography
+// -------------------------
+
+$font-size-base:          13px;
+$font-size-large:         ceil(($font-size-base * 1.25)); // ~16px
+$font-size-small:         ceil(($font-size-base * 0.85)); // ~11px
+
+$line-height-base:        1.428571429; // 20/14
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+
+// Iconography
+// -------------------------
+
+$icon-font-name:          "glyphicons-halflings-regular";
+
+// Components
+// -------------------------
+// Based on 14px font-size and 1.428 line-height (~20px to start)
+
+$padding-base-vertical:          5px;
+$padding-base-horizontal:        10px;
+
+$padding-large-vertical:         12px;
+$padding-large-horizontal:       14px;
+
+$padding-small-vertical:         2px;
+$padding-small-horizontal:       6px;
+
+
+// Navbar
+// -------------------------
+
+// Inverted navbar
+$navbar-inverse-color:                      #333;
+$navbar-inverse-bg:                         $brand-primary;
+
+// Inverted navbar links
+$navbar-inverse-link-color:                 #222;
+
+// Inverted navbar brand label
+$navbar-inverse-brand-color:                #fff;
+
+@import "../../bootstrap/scss/_variables";
