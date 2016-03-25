@@ -6,18 +6,7 @@ session_start();
 if(!isset($_SESSION['isConnected'])){
   header('Location: /login.php');
 }
-try
-{
-  $bdd = new PDO(
-    'mysql:host=localhost;dbname=db_site;charset=utf8',
-    'root',
-    '',
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch (Exception $e)
-{
-  die('Erreur : ' . $e->getMessage());
-}
+include('../../configuration/connect_db.php');
 
 $query=$bdd->query('SELECT * FROM users ORDER BY username');
 
@@ -52,8 +41,8 @@ $query=$bdd->query('SELECT * FROM users ORDER BY username');
           }
           ?>
         </select>
-        <script src="/resources/js/classie.js"></script>
-        <script src="/resources/js/selectFx.js"></script>
+        <script src="../../resources/js/classie.js"></script>
+        <script src="../../resources/js/selectFx.js"></script>
         <script>
           (function() {
             [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {

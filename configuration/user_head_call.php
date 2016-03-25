@@ -18,16 +18,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.cyan-light_blue.min.css">
-    <link rel="stylesheet" href="/resources/css/styles.css">
-    <link rel="stylesheet" href="/resources/css/main.css">
+    <link rel="stylesheet" href="../../resources/css/styles.css">
+    <link rel="stylesheet" href="../../resources/css/main.css">
     <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/cs-select.css" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/cs-skin-border.css" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/ns-default.css" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/ns-style-other.css" />
-    <script src="/resources/js/modernizr.custom.js"></script>
-    <script src="/resources/js/snap.svg-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/css/cs-select.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/css/cs-skin-border.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/css/ns-default.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/css/ns-style-other.css" />
+    <script src="../../resources/js/modernizr.custom.js"></script>
+    <script src="../../resources/js/snap.svg-min.js"></script>
     <style>
     #view-source {
       position: fixed;
@@ -58,9 +58,9 @@
       </div>
     </header>
     <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-      <a class="mdl-navigation__link" href="/user/user.php"><i class="mdl-color-text--blue-grey-400 material-icons">home</i>Accueil</a>
-      <a class="mdl-navigation__link" href="/user/user/user_managment_account.php"><i class="mdl-color-text--blue-grey-400 material-icons">person</i>Gestion du compte</a>
-      <a class="mdl-navigation__link" href="/user/compteur/user_managment_compteur.php"><i class="mdl-color-text--blue-grey-400 material-icons">memory</i>Gestion du/des compteur(s)</a>
+      <a class="mdl-navigation__link" href="../user.php"><i class="mdl-color-text--blue-grey-400 material-icons">home</i>Accueil</a>
+      <a class="mdl-navigation__link" href="../user/user_managment_account.php"><i class="mdl-color-text--blue-grey-400 material-icons">person</i>Gestion du compte</a>
+      <a class="mdl-navigation__link" href="../compteur/user_managment_compteur.php"><i class="mdl-color-text--blue-grey-400 material-icons">memory</i>Gestion du/des compteur(s)</a>
       <a class="mdl-navigation__link" href="../../deconnect.php"><i class="mdl-color-text--blue-grey-400 material-icons">cancel</i>Deconnexion</a>
       <div class="mdl-layout-spacer"></div>
       <a class="mdl-navigation__link" href="" target="_blank"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>

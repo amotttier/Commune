@@ -1,17 +1,6 @@
 <?php
 session_start();
-try
-{
-  $bdd = new PDO(
-    'mysql:host=localhost;dbname=db_site;charset=utf8',
-    'root',
-    '',
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch (Exception $e)
-{
-  die('Erreur : ' . $e->getMessage());
-}
+include('../../configuration/connect_db.php');
 
 
 $query=$bdd->prepare('SELECT *
@@ -77,8 +66,8 @@ $data=$query->fetch();
     </form>
   </main>
   <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
-  <script src="/resources/js/classie.js"></script>
-  <script src="/resources/js/notificationFx.js"></script>
+  <script src="../../resources/js/classie.js"></script>
+  <script src="../../resources/js/notificationFx.js"></script>
   <script>
       windows.onlaod = function() {
 

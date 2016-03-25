@@ -1,17 +1,6 @@
 <?php
 session_start();
-try
-{
-  $bdd = new PDO(
-    'mysql:host=localhost;dbname=db_site;charset=utf8',
-    'root',
-    '',
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch (Exception $e)
-{
-  die('Erreur : ' . $e->getMessage());
-}
+include('../../configuration/connect_db.php');
 
 
 $query=$bdd->prepare('SELECT *

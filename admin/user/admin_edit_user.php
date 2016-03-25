@@ -1,18 +1,7 @@
 <?php
 session_start();
 
-try
-{
-  $bdd = new PDO(
-    'mysql:host=localhost;dbname=db_site;charset=utf8',
-    'root',
-    '',
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch (Exception $e)
-{
-  die('Erreur : ' . $e->getMessage());
-}
+include('../../configuration/connect_db.php');
 if(is_numeric($id = $_GET['id'])){
 $id = $_GET['id'];
 $_SESSION['edit_id'] = $id;
